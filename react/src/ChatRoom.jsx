@@ -44,7 +44,7 @@ function ChatRoom() {
                     <div className={((index === 0) || (messages[index].sender !== messages[index - 1].sender)) ? "px-4 py-0.5 inline-flex flex-col gap-2" : "px-4 py-0.5 inline-flex flex-col gap-2"}>
                       {
                         ((index === 0) || (messages[index].sender !== messages[index - 1].sender)) &&
-                        <div className={(message.sender === username) ? "flex flex-row-reverse gap-x-2 items-center" : "flex gap-x-2 items-center"}>
+                        <div style={{ marginTop: (message.sender !== username && index !== 0) ? "26px" : "0px" }} className={(message.sender === username) ? "flex flex-row-reverse gap-x-2 items-center" : "flex gap-x-2 items-center"}>
                           <div className="px-2.5 py-1.5 rounded-full bg-slate-300">
                             <i className="fa-solid fa-user text-xl"></i>
                           </div>
