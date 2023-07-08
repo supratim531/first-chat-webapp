@@ -55,7 +55,12 @@ function ChatRoom() {
                         </div>
                       }
                       <div style={{ alignSelf: (message.sender === username) ? "flex-end" : "flex-start" }} className={(message.sender === username) ? "p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-[#d9fdd3]" : "p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-white"}>
-                        <pre className="font-roboto overflow-x-auto whitespace-pre-wrap">{message.content}</pre>
+                        <div className="flex gap-x-2">
+                          <pre className="font-roboto overflow-x-auto whitespace-pre-wrap">{message.content}</pre>
+                          <div className="self-end bottom-0 flex justify-end text-xs">
+                            <span className="whitespace-nowrap text-slate-600">{message.timestamp.split(',')[1].toLowerCase()}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -69,7 +74,11 @@ function ChatRoom() {
           <div className="px-4 py-3 w-full flex items-center rounded-lg outline-none shadow shadow-slate-600">
             <textarea value={message.content} onKeyDown={e => {
               if (e.code === "Enter" || e.code === "NumpadEnter") {
-                sendMessage(e);
+                if (e.shiftKey) {
+                  console.log('shift enter was pressed');
+                } else {
+                  sendMessage(e);
+                }
               }
             }} onChange={e => setMessage({ ...message, content: e.target.value, timestamp: new Date().toLocaleString() })} name="" id="" style={{ resize: "none" }} className="w-full outline-none" placeholder="Type a message"></textarea>
           </div>
