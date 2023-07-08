@@ -44,7 +44,7 @@ function ChatRoom() {
                     <div className={((index === 0) || (messages[index].sender !== messages[index - 1].sender)) ? "px-4 py-0.5 inline-flex flex-col gap-2" : "px-4 py-0.5 inline-flex flex-col gap-2"}>
                       {
                         ((index === 0) || (messages[index].sender !== messages[index - 1].sender)) &&
-                        <div style={{ marginTop: (message.sender !== username && index !== 0) ? "26px" : "0px" }} className={(message.sender === username) ? "flex flex-row-reverse gap-x-2 items-center" : "flex gap-x-2 items-center"}>
+                        <div style={{ marginTop: (index !== 0) ? "26px" : "0px" }} className={(message.sender === username) ? "flex flex-row-reverse gap-x-2 items-center" : "flex gap-x-2 items-center"}>
                           <div className="px-2.5 py-1.5 rounded-full bg-slate-300">
                             <i className="fa-solid fa-user text-xl"></i>
                           </div>
@@ -54,7 +54,7 @@ function ChatRoom() {
                           </div>
                         </div>
                       }
-                      <div style={{ alignSelf: (message.sender === username) ? "flex-end" : "flex-start" }} className={(message.sender === username) ? "p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-[#d9fdd3]" : "p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-white"}>
+                      <div style={{ alignSelf: (message.sender === username) ? "flex-end" : "flex-start" }} className={(message.sender === username) ? "p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-[#d9fdd3]" : "border border-slate-100 p-2 flex rounded-lg shadow-sm shadow-slate-400 bg-white"}>
                         <div className="flex gap-x-2">
                           <pre className="font-roboto overflow-x-auto whitespace-pre-wrap">{message.content}</pre>
                           <div className="self-end bottom-0 flex justify-end text-xs">
