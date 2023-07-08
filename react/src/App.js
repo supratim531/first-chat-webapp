@@ -13,7 +13,7 @@ function App() {
 
   const connect = username => {
     let stompClient = null;
-    let socket = new SockJS("https://2527-49-37-8-120.ngrok-free.app/server");
+    let socket = new SockJS("https://d85d-49-37-11-162.ngrok-free.app/server");
     // let socket = new SockJS("http://localhost:8888/server");
     stompClient = over(socket);
     stompClient.connect({}, frame => {
